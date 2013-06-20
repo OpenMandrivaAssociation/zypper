@@ -28,6 +28,8 @@ License: GPLv2+ with special permission to link to OpenSSL
 Group: System/Configuration/Packaging
 BuildRequires: cmake
 BuildRequires: solv-devel zypp-devel
+BuildRequires: readline-devel
+BuildRequires: boost-devel
 
 %description
 Zypper is a command line package manager, which makes use of libzypp,
