@@ -1,0 +1,21 @@
+--- zypper/CMakeLists.txt.omv~	2013-06-20 02:38:30.705005398 +0200
++++ zypper/CMakeLists.txt	2013-06-20 02:39:06.768554541 +0200
+@@ -15,6 +15,8 @@ INCLUDE( ${ZYPPER_SOURCE_DIR}/VERSION.cm
+ SET( VERSION "${VERSION_MAJOR}.${VERSION_MINOR}.${VERSION_PATCH}" )
+ ADD_DEFINITIONS( -D_FILE_OFFSET_BITS=64 )
+ ADD_DEFINITIONS( -DVERSION="${VERSION}" )
++INCLUDE_DIRECTORIES( /usr/include/rpm )
++ADD_DEFINITIONS( -D_RPM_5 )
+ 
+ SET( CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -g -O2 -Wall -Woverloaded-virtual -Wnon-virtual-dtor -fstack-protector -std=c++0x -fvisibility-inlines-hidden" )
+ SET( CMAKE_C_FLAGS   "${CMAKE_C_FLAGS}   -g -O2 -Wall -fstack-protector" )
+--- zypper/src/Zypper.h.omv~	2013-06-20 02:41:07.058050716 +0200
++++ zypper/src/Zypper.h	2013-06-20 02:41:18.352909510 +0200
+@@ -34,6 +34,7 @@
+ using namespace zypp;
+ 
+ // Convenience
++#include <iostream>
+ using std::cout;
+ using std::cerr;
+ using std::endl;
