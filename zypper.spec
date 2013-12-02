@@ -1,35 +1,36 @@
 %define beta %{nil}
 %define scmrev 20130619
 
-Name: zypper
-Version: 1.9.1
+Summary:	Command line package manager
+Name:		zypper
+Version:	1.9.1
 %if "%{beta}" == ""
 %if "%{scmrev}" == ""
-Release: 1
-Source0: %{name}-%{version}.tar.bz2
+Release:	2
+Source0:	%{name}-%{version}.tar.bz2
 %else
-Release: 0.%{scmrev}.1
-Source0: %{name}-%{scmrev}.tar.xz
+Release:	0.%{scmrev}.1
+Source0:	%{name}-%{scmrev}.tar.xz
 %endif
 %else
 %if "%{scmrev}" == ""
-Release: 0.%{beta}.1
-Source0: %{name}-%{version}%{beta}.tar.bz2
+Release:	0.%{beta}.1
+Source0:	%{name}-%{version}%{beta}.tar.bz2
 %else
-Release: 0.%{beta}.0.%{scmrev}.1
-Source0: %{name}-%{scmrev}.tar.xz
+Release:	0.%{beta}.0.%{scmrev}.1
+Source0:	%{name}-%{scmrev}.tar.xz
 %endif
 %endif
-Patch0: zypper-1.9.1-compile.patch
-Summary: Command line package manager
-URL: http://en.opensuse.org/Zypper
+URL:		http://en.opensuse.org/Zypper
 # Git at https://github.com/openSUSE/zypper
-License: GPLv2+ with special permission to link to OpenSSL
-Group: System/Configuration/Packaging
-BuildRequires: cmake
-BuildRequires: solv-devel zypp-devel
-BuildRequires: readline-devel
-BuildRequires: boost-devel
+License:	GPLv2+ with special permission to link to OpenSSL
+Group:		System/Configuration/Packaging
+Patch0:		zypper-1.9.1-compile.patch
+BuildRequires:	cmake
+BuildRequires:	solv-devel
+BuildRequires:	zypp-devel
+BuildRequires:	readline-devel
+BuildRequires:	boost-devel
 
 %description
 Zypper is a command line package manager, which makes use of libzypp,
