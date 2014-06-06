@@ -53,7 +53,7 @@ extensions like patches, patterns and products.
 
 %build
 cd build
-%make
+%make CFLAGS="$CFLAGS -fno-whole-program"
 
 %install
 cd build
