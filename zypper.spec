@@ -9,7 +9,7 @@ Version:	1.9.1
 Release:	7
 Source0:	%{name}-%{version}.tar.bz2
 %else
-Release:	0.%{scmrev}.1
+Release:	0.%{scmrev}.2
 Source0:	%{name}-%{scmrev}.tar.xz
 %endif
 %else
