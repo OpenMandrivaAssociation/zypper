@@ -1,13 +1,13 @@
 %define beta %{nil}
-%define scmrev 20130619
+%define scmrev %{nil}
 
 Summary:	Command line package manager
 Name:		zypper
-Version:	1.9.1
+Version:	1.11.14
 %if "%{beta}" == ""
 %if "%{scmrev}" == ""
-Release:	8
-Source0:	%{name}-%{version}.tar.bz2
+Release:	1
+Source0:	%{name}-%{version}.tar.gz
 %else
 Release:	0.%{scmrev}.1
 Source0:	%{name}-%{scmrev}.tar.xz
@@ -25,7 +25,7 @@ URL:		http://en.opensuse.org/Zypper
 # Git at https://github.com/openSUSE/zypper
 License:	GPLv2+ with special permission to link to OpenSSL
 Group:		System/Configuration/Packaging
-Patch0:		zypper-1.9.1-compile.patch
+Patch0:		zypper-1.11.14-compile.patch
 BuildRequires:	cmake
 BuildRequires:	solv-devel
 BuildRequires:	zypp-devel
@@ -49,6 +49,10 @@ extensions like patches, patterns and products.
 %setup -q -n %{name}
 %endif
 %apply_patches
+export CFLAGS='-D_RPM_5'
+export CXXFLAGS='-D_RPM_5 -I/usr/include/rpm'
+export CC=gcc
+export CXX=g++
 %cmake
 
 %build

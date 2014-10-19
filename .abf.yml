@@ -1,2 +1,4 @@
+removed_sources:
+  zypper-20130619.tar.xz: 4e039e77f958585c7fcf8140389c053a34d6dd0a
 sources:
-  "zypper-20130619.tar.xz": 4e039e77f958585c7fcf8140389c053a34d6dd0a
+  zypper-1.11.14.tar.gz: 6501c99a8622cf5944e6c5ed35ca38c41e6fad8a

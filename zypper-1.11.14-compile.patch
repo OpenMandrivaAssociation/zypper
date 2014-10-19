@@ -1,0 +1,10 @@
+--- zypper-1.11.14/src/utils/colors.h.orig	2014-10-19 09:15:26.046966970 +0100
++++ zypper-1.11.14/src/utils/colors.h	2014-10-19 09:15:42.942965725 +0100
+@@ -10,6 +10,7 @@
+ 
+ #include <string>
+ #include <iosfwd>
++#include <iostream>
+ 
+ #define COLOR_BLACK             "\033[30m"
+ #define COLOR_GREY_DARK         "\033[1;30m"
