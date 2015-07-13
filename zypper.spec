@@ -3,10 +3,10 @@
 
 Summary:	Command line package manager
 Name:		zypper
-Version:	1.11.14
+Version:	1.12.8
 %if "%{beta}" == ""
 %if "%{scmrev}" == ""
-Release:	2
+Release:	1
 Source0:	%{name}-%{version}.tar.gz
 %else
 Release:	0.%{scmrev}.1
@@ -51,8 +51,6 @@ extensions like patches, patterns and products.
 %apply_patches
 export CFLAGS='-D_RPM_5'
 export CXXFLAGS='-D_RPM_5 -I/usr/include/rpm'
-export CC=gcc
-export CXX=g++
 %cmake
 
 %build
