@@ -3,10 +3,10 @@
 
 Summary:	Command line package manager
 Name:		zypper
-Version:	1.12.8
+Version:	1.12.28
 %if "%{beta}" == ""
 %if "%{scmrev}" == ""
-Release:	3
+Release:	1
 Source0:	%{name}-%{version}.tar.gz
 %else
 Release:	0.%{scmrev}.1
@@ -25,7 +25,6 @@ URL:		http://en.opensuse.org/Zypper
 # Git at https://github.com/openSUSE/zypper
 License:	GPLv2+ with special permission to link to OpenSSL
 Group:		System/Configuration/Packaging
-Patch0:		zypper-1.11.14-compile.patch
 BuildRequires:	cmake
 BuildRequires:	solv-devel
 BuildRequires:	zypp-devel
@@ -49,6 +48,9 @@ extensions like patches, patterns and products.
 %setup -q -n %{name}
 %endif
 %apply_patches
+# lots of errors when using clang
+export CC=gcc
+export CXX=g++
 export CFLAGS='-D_RPM_5'
 export CXXFLAGS='-D_RPM_5 -I/usr/include/rpm'
 %cmake
@@ -69,6 +71,8 @@ mv %buildroot%_docdir/packages/zypper %buildroot%_docdir/%name-%version
 %config %{_sysconfdir}/logrotate.d/zypp-refresh.lr
 %config %{_sysconfdir}/logrotate.d/zypper.lr
 %config %{_sysconfdir}/zypp/zypper.conf
+%config %{_sysconfdir}/zypp/apt-packagemap.d/*
+%{_bindir}/apt-get
 %{_bindir}/aptitude
 %{_bindir}/installation_sources
 %{_bindir}/zypper
