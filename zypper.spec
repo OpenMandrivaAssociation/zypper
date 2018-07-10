@@ -6,7 +6,7 @@ Name:		zypper
 Version:	1.12.28
 %if "%{beta}" == ""
 %if "%{scmrev}" == ""
-Release:	1
+Release:	2
 Source0:	%{name}-%{version}.tar.gz
 %else
 Release:	0.%{scmrev}.1
