@@ -1,4 +1,2 @@
-removed_sources:
-  zypper-1.12.8.tar.gz: a59137b8ae698cc0799567dbb25c46421adaa221
 sources:
-  zypper-1.12.28.tar.gz: 3370ac601efd2b107b80c7c3c669ceb5481847b9
+  zypper-1.14.32.tar.gz: 6ed9eee1ea35ccdc44ce37cc5e3bb67515ef610d
