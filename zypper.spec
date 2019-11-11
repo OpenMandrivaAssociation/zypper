@@ -34,6 +34,7 @@ BuildRequires:	pkgconfig(libxml-2.0)
 BuildRequires:	pkgconfig(augeas)
 BuildRequires:	readline-devel
 BuildRequires:	boost-devel
+BuildRequires:	a2x
 
 %description
 Zypper is a command line package manager, which makes use of libzypp,
