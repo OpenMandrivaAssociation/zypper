@@ -21,13 +21,17 @@ Release:	0.%{beta}.0.%{scmrev}.1
 Source0:	%{name}-%{scmrev}.tar.xz
 %endif
 %endif
+Patch0:		zypper-1.14.32-compile.patch
 URL:		http://en.opensuse.org/Zypper
 # Git at https://github.com/openSUSE/zypper
 License:	GPLv2+ with special permission to link to OpenSSL
 Group:		System/Configuration/Packaging
 BuildRequires:	cmake
-BuildRequires:	solv-devel
-BuildRequires:	zypp-devel
+BuildRequires:	ninja
+BuildRequires:	pkgconfig(libsolv)
+BuildRequires:	pkgconfig(libzypp)
+BuildRequires:	pkgconfig(libxml-2.0)
+BuildRequires:	pkgconfig(augeas)
 BuildRequires:	readline-devel
 BuildRequires:	boost-devel
 
@@ -43,26 +47,18 @@ extensions like patches, patterns and products.
 
 %prep
 %if "%{scmrev}" == ""
-%setup -q -n %{name}-%{version}%{beta}
+%autosetup -p1 -n %{name}-%{version}%{beta}
 %else
-%setup -q -n %{name}
+%autosetup -p1 -n %{name}
 %endif
-%apply_patches
-# lots of errors when using clang
-export CC=gcc
-export CXX=g++
-export CFLAGS='-D_RPM_5'
-export CXXFLAGS='-D_RPM_5 -I/usr/include/rpm'
-%cmake
+%cmake -G Ninja
 
 %build
-cd build
-%make
+%ninja_build -C build
 
 %install
-cd build
-%makeinstall_std
-cd ..
+%ninja_install -C build
+
 mv %buildroot%_docdir/packages/zypper %buildroot%_docdir/%name-%version
 %find_lang %name
 
@@ -72,12 +68,15 @@ mv %buildroot%_docdir/packages/zypper %buildroot%_docdir/%name-%version
 %config %{_sysconfdir}/logrotate.d/zypper.lr
 %config %{_sysconfdir}/zypp/zypper.conf
 %config %{_sysconfdir}/zypp/apt-packagemap.d/*
+%{_bindir}/apt
 %{_bindir}/apt-get
 %{_bindir}/aptitude
 %{_bindir}/installation_sources
+%{_bindir}/needs-restarting
 %{_bindir}/zypper
 %{_sbindir}/zypp-refresh
 %{_sbindir}/zypper-log
 %doc %{_docdir}/%{name}-%{version}
-%{_datadir}/man/man8/*
+%{_mandir}/man1/needs-restarting.1*
+%{_mandir}/man8/*
 %{_datadir}/zypper

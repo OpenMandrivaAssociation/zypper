@@ -1,0 +1,15 @@
+diff -up zypper-1.14.32/src/utils/Augeas.cc.omv~ zypper-1.14.32/src/utils/Augeas.cc
+--- zypper-1.14.32/src/utils/Augeas.cc.omv~	2019-11-11 00:40:13.460909777 +0100
++++ zypper-1.14.32/src/utils/Augeas.cc	2019-11-11 00:40:17.999924362 +0100
+@@ -4,10 +4,7 @@
+                          /__|\_, | .__/ .__/\___|_|
+                              |__/|_|  |_|
+ \*---------------------------------------------------------------------------*/
+-extern "C"
+-{
+-  #include <augeas.h>
+-}
++#include <augeas.h>
+ 
+ #include <iostream>
+ #include <stdlib.h>
