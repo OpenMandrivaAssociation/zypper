@@ -32,6 +32,7 @@ BuildRequires:	pkgconfig(libsolv)
 BuildRequires:	pkgconfig(libzypp)
 BuildRequires:	pkgconfig(libxml-2.0)
 BuildRequires:	pkgconfig(augeas)
+BuildRequires:	pkgconfig(rpm)
 BuildRequires:	readline-devel
 BuildRequires:	boost-devel
 BuildRequires:	a2x
