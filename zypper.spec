@@ -6,7 +6,7 @@ Name:		zypper
 Version:	1.14.32
 %if "%{beta}" == ""
 %if "%{scmrev}" == ""
-Release:	1
+Release:	2
 Source0:	https://github.com/openSUSE/%{name}/archive/%{version}/%{name}-%{version}.tar.gz
 %else
 Release:	0.%{scmrev}.1
@@ -47,6 +47,16 @@ Zypper repositories are similar to the ones used in YaST, which
 also makes use of libzypp. Zypper can also handle repository
 extensions like patches, patterns and products. 
 
+%package needs-restarting
+Summary:        needs-restarting compatibility with zypper
+Group:          System/Configuration/Packaging
+Requires:       zypper
+Supplements:    zypper
+BuildArch:      noarch
+
+%description needs-restarting
+Provides compatibility to DNF needs-restarting command using zypper
+
 %prep
 %if "%{scmrev}" == ""
 %autosetup -p1 -n %{name}-%{version}%{beta}
@@ -74,11 +84,13 @@ mv %buildroot%_docdir/packages/zypper %buildroot%_docdir/%name-%version
 %{_bindir}/apt-get
 %{_bindir}/aptitude
 %{_bindir}/installation_sources
-%{_bindir}/needs-restarting
 %{_bindir}/zypper
 %{_sbindir}/zypp-refresh
 %{_sbindir}/zypper-log
 %doc %{_docdir}/%{name}-%{version}
-%{_mandir}/man1/needs-restarting.1*
 %{_mandir}/man8/*
 %{_datadir}/zypper
+
+%files needs-restarting
+%{_bindir}/needs-restarting
+%{_mandir}/man1/needs-restarting.1*
