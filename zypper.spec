@@ -6,7 +6,7 @@ Name:		zypper
 Version:	1.14.32
 %if "%{beta}" == ""
 %if "%{scmrev}" == ""
-Release:	3
+Release:	4
 Source0:	https://github.com/openSUSE/%{name}/archive/%{version}/%{name}-%{version}.tar.gz
 %else
 Release:	0.%{scmrev}.1
