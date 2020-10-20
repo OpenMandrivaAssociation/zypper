@@ -3,10 +3,10 @@
 
 Summary:	Command line package manager
 Name:		zypper
-Version:	1.14.32
+Version:	1.14.40
 %if "%{beta}" == ""
 %if "%{scmrev}" == ""
-Release:	4
+Release:	1
 Source0:	https://github.com/openSUSE/%{name}/archive/%{version}/%{name}-%{version}.tar.gz
 %else
 Release:	0.%{scmrev}.1
@@ -21,7 +21,6 @@ Release:	0.%{beta}.0.%{scmrev}.1
 Source0:	%{name}-%{scmrev}.tar.xz
 %endif
 %endif
-Patch0:		zypper-1.14.32-compile.patch
 URL:		http://en.opensuse.org/Zypper
 # Git at https://github.com/openSUSE/zypper
 License:	GPLv2+ with special permission to link to OpenSSL
@@ -35,7 +34,7 @@ BuildRequires:	pkgconfig(augeas)
 BuildRequires:	pkgconfig(rpm)
 BuildRequires:	readline-devel
 BuildRequires:	boost-devel
-BuildRequires:	a2x
+BuildRequires:	asciidoctor
 
 %description
 Zypper is a command line package manager, which makes use of libzypp,
