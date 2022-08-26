@@ -3,13 +3,13 @@
 
 Summary:	Command line package manager
 Name:		zypper
-Version:	1.14.50
+Version:	1.14.55
 %if "%{beta}" == ""
 %if "%{scmrev}" == ""
-Release:	2
+Release:	1
 Source0:	https://github.com/openSUSE/%{name}/archive/%{version}/%{name}-%{version}.tar.gz
 %else
-Release:	1.%{scmrev}.1
+Release:	0.%{scmrev}.1
 Source0:	%{name}-%{scmrev}.tar.xz
 %endif
 %else
@@ -70,7 +70,8 @@ Provides compatibility to DNF needs-restarting command using zypper
 %install
 %ninja_install -C build
 
-mv %buildroot%_docdir/packages/zypper %buildroot%_docdir/%name-%version
+mv %{buildroot}%{_prefix}/sbin/* %{buildroot}%{_bindir}
+mv %{buildroot}%{_docdir}/packages/zypper %{buildroot}%{_docdir}/%{name}-%{version}
 %find_lang %name
 
 %files -f %name.lang
@@ -84,8 +85,8 @@ mv %buildroot%_docdir/packages/zypper %buildroot%_docdir/%name-%version
 %{_bindir}/aptitude
 %{_bindir}/installation_sources
 %{_bindir}/zypper
-%{_sbindir}/zypp-refresh
-%{_sbindir}/zypper-log
+%{_bindir}/zypp-refresh
+%{_bindir}/zypper-log
 %doc %{_docdir}/%{name}-%{version}
 %{_mandir}/man8/*
 %{_datadir}/zypper
