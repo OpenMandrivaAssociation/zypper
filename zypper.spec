@@ -1,9 +1,13 @@
 %define beta %{nil}
 %define scmrev %{nil}
 
+# FIXME can be removed once it builds with clang.
+# Only gcc LTO sucks.
+%define _disable_lto 1
+
 Summary:	Command line package manager
 Name:		zypper
-Version:	1.14.55
+Version:	1.14.59
 %if "%{beta}" == ""
 %if "%{scmrev}" == ""
 Release:	1
@@ -62,6 +66,9 @@ Provides compatibility to DNF needs-restarting command using zypper
 %else
 %autosetup -p1 -n %{name}
 %endif
+# Problem with libzypp's understanding of std::mem_fn
+# causes build error with clang++ 15.0.x
+export CXX=g++
 %cmake -G Ninja
 
 %build
