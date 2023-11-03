@@ -7,7 +7,7 @@
 
 Summary:	Command line package manager
 Name:		zypper
-Version:	1.14.62
+Version:	1.14.66
 %if "%{beta}" == ""
 %if "%{scmrev}" == ""
 Release:	1
@@ -82,7 +82,6 @@ mv %{buildroot}%{_docdir}/packages/zypper %{buildroot}%{_docdir}/%{name}-%{versi
 %find_lang %name
 
 %files -f %name.lang
-%{_sysconfdir}/bash_completion.d/zypper.sh
 %config %{_sysconfdir}/logrotate.d/zypp-refresh.lr
 %config %{_sysconfdir}/logrotate.d/zypper.lr
 %config %{_sysconfdir}/zypp/zypper.conf
@@ -97,6 +96,7 @@ mv %{buildroot}%{_docdir}/packages/zypper %{buildroot}%{_docdir}/%{name}-%{versi
 %doc %{_docdir}/%{name}-%{version}
 %{_mandir}/man8/*
 %{_datadir}/zypper
+%{_datadir}/bash-completion/completions/zypper
 
 %files needs-restarting
 %{_bindir}/needs-restarting
