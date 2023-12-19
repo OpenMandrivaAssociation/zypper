@@ -7,21 +7,21 @@
 
 Summary:	Command line package manager
 Name:		zypper
-Version:	1.14.66
+Version:	1.14.68
 %if "%{beta}" == ""
 %if "%{scmrev}" == ""
 Release:	1
 Source0:	https://github.com/openSUSE/%{name}/archive/%{version}/%{name}-%{version}.tar.gz
 %else
-Release:	0.%{scmrev}.1
+Release:	0.%{scmrev}1
 Source0:	%{name}-%{scmrev}.tar.xz
 %endif
 %else
 %if "%{scmrev}" == ""
-Release:	0.%{beta}.1
+Release:	0.%{beta}1
 Source0:	%{name}-%{version}%{beta}.tar.bz2
 %else
-Release:	0.%{beta}.1.%{scmrev}.1
+Release:	0.%{beta}.1.%{scmrev}1
 Source0:	%{name}-%{scmrev}.tar.xz
 %endif
 %endif
