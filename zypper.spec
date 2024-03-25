@@ -28,6 +28,7 @@ License:	GPLv2+ with special permission to link to OpenSSL
 Group:		System/Configuration/Packaging
 BuildRequires:	cmake
 BuildRequires:	ninja
+BuildRequires:	gettext
 BuildRequires:	pkgconfig(libsolv)
 BuildRequires:	pkgconfig(libzypp)
 BuildRequires:	pkgconfig(libxml-2.0)
