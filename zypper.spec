@@ -1,13 +1,9 @@
 %define beta %{nil}
 %define scmrev %{nil}
 
-# FIXME can be removed once it builds with clang.
-# Only gcc LTO sucks.
-#define _disable_lto 1
-
 Summary:	Command line package manager
 Name:		zypper
-Version:	1.14.68
+Version:	1.14.70
 %if "%{beta}" == ""
 %if "%{scmrev}" == ""
 Release:	1
@@ -25,6 +21,7 @@ Release:	0.%{beta}.1.%{scmrev}1
 Source0:	%{name}-%{scmrev}.tar.xz
 %endif
 %endif
+Patch0:		zypper-1.14.68-c++20.patch
 URL:		http://en.opensuse.org/Zypper
 # Git at https://github.com/openSUSE/zypper
 License:	GPLv2+ with special permission to link to OpenSSL

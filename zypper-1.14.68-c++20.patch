@@ -1,0 +1,47 @@
+diff -up zypper-1.14.68/src/SolverRequester.h.omv~ zypper-1.14.68/src/SolverRequester.h
+--- zypper-1.14.68/src/SolverRequester.h.omv~	2024-03-25 19:43:36.309736371 +0100
++++ zypper-1.14.68/src/SolverRequester.h	2024-03-25 19:43:48.181025702 +0100
+@@ -25,6 +25,7 @@
+ #include "utils/misc.h" // for ResKindSet; might make sense to move this elsewhere
+ #include "global-settings.h"
+ 
++#define requires dep_requires
+ 
+ ///////////////////////////////////////////////////////////////////
+ /// \class CliMatchPatch
+diff -up zypper-1.14.68/src/Summary.cc.omv~ zypper-1.14.68/src/Summary.cc
+--- zypper-1.14.68/src/Summary.cc.omv~	2024-03-25 19:44:51.821579976 +0100
++++ zypper-1.14.68/src/Summary.cc	2024-03-25 19:45:02.661845234 +0100
+@@ -28,6 +28,8 @@
+ #include "Summary.h"
+ #include "utils/console.h"
+ 
++#define requires dep_requires
++
+ // Suppress all application related summary messages.
+ // Summary messages produce lots of false reports about deleted applications. This
+ // is because the quality of the application related metadata is poor (better said
+diff -up zypper-1.14.68/src/commands/search/search.cc.omv~ zypper-1.14.68/src/commands/search/search.cc
+--- zypper-1.14.68/src/commands/search/search.cc.omv~	2024-03-25 19:49:06.139834975 +0100
++++ zypper-1.14.68/src/commands/search/search.cc	2024-03-25 19:49:13.393014199 +0100
+@@ -13,6 +13,8 @@
+ 
+ #include <unordered_map>
+ 
++#define requires dep_requires
++
+ namespace zypp
+ {
+   namespace ZyppFlags
+diff -up zypper-1.14.68/src/misc.cc.omv~ zypper-1.14.68/src/misc.cc
+--- zypper-1.14.68/src/misc.cc.omv~	2024-03-25 19:49:24.428286951 +0100
++++ zypper-1.14.68/src/misc.cc	2024-03-25 19:49:33.689515922 +0100
+@@ -35,6 +35,8 @@
+ #include "misc.h"
+ #include "PackageArgs.h"
+ 
++#define requires dep_requires
++
+ extern ZYpp::Ptr God;
+ 
+ void remove_selections( Zypper & zypper )
