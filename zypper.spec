@@ -22,7 +22,7 @@ Source0:	%{name}-%{scmrev}.tar.xz
 %endif
 %endif
 Patch0:		zypper-1.14.68-c++20.patch
-URL:		http://en.opensuse.org/Zypper
+URL:		https://en.opensuse.org/Zypper
 # Git at https://github.com/openSUSE/zypper
 License:	GPLv2+ with special permission to link to OpenSSL
 Group:		System/Configuration/Packaging
