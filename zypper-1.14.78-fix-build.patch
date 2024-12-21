@@ -1,0 +1,11 @@
+diff -up zypper-1.14.78/src/CommitSummary.cc.omv~ zypper-1.14.78/src/CommitSummary.cc
+--- zypper-1.14.78/src/CommitSummary.cc.omv~	2024-12-21 17:38:03.825557643 +0100
++++ zypper-1.14.78/src/CommitSummary.cc	2024-12-21 17:38:13.323792978 +0100
+@@ -5,6 +5,7 @@
+                              |__/|_|  |_|
+ \*---------------------------------------------------------------------------*/
+ 
++#include <boost/any.hpp> // Include it first, before it gets broken by defines
+ #include "CommitSummary.h"
+ 
+ #include "utils/text.h"

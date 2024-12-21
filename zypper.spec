@@ -1,5 +1,6 @@
 %define beta %{nil}
 %define scmrev %{nil}
+%global optflags %{optflags} -DBOOST_POINTERS_NO_IOSTREAM
 
 Summary:	Command line package manager
 Name:		zypper
@@ -22,6 +23,7 @@ Source0:	%{name}-%{scmrev}.tar.xz
 %endif
 %endif
 Patch0:		zypper-1.14.68-c++20.patch
+Patch1:		zypper-1.14.78-fix-build.patch
 URL:		https://en.opensuse.org/Zypper
 # Git at https://github.com/openSUSE/zypper
 License:	GPLv2+ with special permission to link to OpenSSL
