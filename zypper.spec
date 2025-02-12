@@ -1,10 +1,9 @@
 %define beta %{nil}
 %define scmrev %{nil}
-%global optflags %{optflags} -DBOOST_POINTERS_NO_IOSTREAM
 
 Summary:	Command line package manager
 Name:		zypper
-Version:	1.14.81
+Version:	1.14.83
 %if "%{beta}" == ""
 %if "%{scmrev}" == ""
 Release:	1
