@@ -3,7 +3,7 @@
 
 Summary:	Command line package manager
 Name:		zypper
-Version:	1.14.88
+Version:	1.14.94
 %if "%{beta}" == ""
 %if "%{scmrev}" == ""
 Release:	2
