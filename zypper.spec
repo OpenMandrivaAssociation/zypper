@@ -3,7 +3,7 @@
 
 Summary:	Command line package manager
 Name:		zypper
-Version:	1.14.98
+Version:	1.14.102
 %if "%{beta}" == ""
 %if "%{scmrev}" == ""
 Release:	1
@@ -31,7 +31,7 @@ BuildRequires:	cmake
 BuildRequires:	ninja
 BuildRequires:	gettext
 BuildRequires:	pkgconfig(libsolv)
-BuildRequires:	pkgconfig(libzypp)
+BuildRequires:	pkgconfig(libzypp) >= 17.38.0
 BuildRequires:	pkgconfig(libxml-2.0)
 BuildRequires:	pkgconfig(augeas)
 BuildRequires:	pkgconfig(rpm)
